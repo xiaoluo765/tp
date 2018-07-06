@@ -1,0 +1,142 @@
+{include file="common/index_header"}
+	<div class="person-cont">
+		<div class="person-main">
+			<div class="person-toper">
+				<span>首页>个人中心</span>
+			</div>
+			<div class="main-left" id="main_left">
+				<div class="order">
+					<p>订单中心</p>
+					<ul>
+						<li>
+							<a href="/order/myorder">我的订单</a>
+						</li>
+						<li>
+							<a href="">意外险</a>
+						</li>
+						<li>
+							<a href="">团购订单</a>
+						</li>
+						<li>
+							<a href="">评价晒单</a>
+						</li>
+						<li>
+							<a href="">话费充值订单</a>
+						</li>
+						<li>
+							<a href="">以旧换新订单</a>
+						</li>
+					</ul>
+				</div>
+				<div class="person" id="person">
+					<p>个人中心</p>
+					<ul>
+						<li>
+							<a class="person-active">我的个人中心</a>
+						</li>
+						<li>
+							<a>消息通知</a>
+						</li>
+						<li>
+							<a href="">购买资格</a>
+						</li>
+						<li>
+							<a href="">现金账户</a>
+						</li>
+						<li>
+							<a href="">小米礼品卡</a>
+						</li>
+						<li>
+							<a href="">现金券</a>
+						</li>
+						<li>
+							<a href="">喜欢的商品</a>
+						</li>
+						<li>
+							<a href="">优惠券</a>
+						</li>
+						<li>
+							<a href="">收货地址</a>
+						</li>
+					</ul>
+				</div>
+				<div class="service">
+					<p>售后服务</p>
+					<ul>
+						<li>
+							<a href="">服务记录</a>
+						</li>
+						<li>
+							<a href="">申请服务</a>
+						</li>
+						<li>
+							<a href="">领取快递报销</a>
+						</li>
+					</ul>
+				</div>
+				<div class="manage">
+					<p>账户管理</p>
+					<ul>
+						<li>
+							<a href="">个人信息</a>
+						</li>
+						<li>
+							<a href="">修改密码</a>
+						</li>
+						<li>
+							<a href="">社区VIP认证</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="main-right" id="main_right">
+				<div class="block" style="display: block;">
+					<div class="right-top">
+						<div class="users-card">
+							<div class="users-photos">
+								{foreach $user as $k=>$v}
+								<img src="{$v->pic}">
+								{/foreach}
+							</div>
+						</div>
+					</div>
+					<div class="change-main">
+						<div class="change-msg">
+							<table>
+								{foreach $user as $k=>$v}
+								<form action="/cdetail/{:session('homeUser.uid')}" method="post" class="change-form" enctype="multipart/form-data">
+									<tr>
+										<td>用户名：</td>
+										<td><input type="text" name="uname" class="change-text" readonly value="{$v->uname}"></td>
+									</tr>
+									<tr>
+										<td>密码：</td>
+										<td><input type="password" name="upwd" class="change-text"></td>
+									</tr>
+									<tr>
+										<td>确认密码：</td>
+										<td><input type="password" name="reupwd" class="change-text"></td>
+									</tr>
+									<tr>
+										<td>邮箱：</td>
+										<td><input type="text" name="email" value="{$v->email}" class="change-text"></td>
+									</tr>
+									<tr>
+										<td>修改头像</td>
+										<td><input type="file" name="pic" value="" class=""></td>
+									</tr>
+									<tr>
+										<td></td>
+										<td><input type="submit" class="change-sub" value="修改"></td>
+									</tr>
+								</form>
+								{/foreach}
+							</table>	
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+	{include file="common/index_footer"}
+<!-- <script src="/static/home/js/person_js.js"></script> -->

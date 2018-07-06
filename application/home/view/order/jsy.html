@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/static/home/css/iconfont.css">
+	<link rel="stylesheet" href="/static/home/css/confirm.css">
+	<link rel="stylesheet" href="/static/home/css/index_footer.css">
+	<link rel="stylesheet" href="/static/home/amazeui/css/amazeui.min.css">
+	<script src="/static/home/amazeui/js/jquery.js"></script>
+	<script src="/static/home/amazeui/js/amazeui.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+				<img src="/static/home/images/logo.png" alt="">
+			</div>
+			<div class="header-title">
+				<h2>确认订单</h2>
+			</div>
+			<div class="users-info">
+				<span class="user">
+					<a href="">
+						{:session('homeUser.uname')}
+						<i class="iconfont icon-moreunfold"></i>
+					</a>
+						<ul class="nav">
+							<li>
+								<a href="">个人中心</a>
+							</li>
+							<li>
+								<a href="">评价晒单</a>
+							</li>
+							<li>
+								<a href="">我的喜欢</a>
+							</li>
+							<li>
+								<a href="">小米账户</a>
+							</li>
+							<li>
+								<a href="">退出登录</a>
+							</li>
+						</ul>
+				</span>
+				<span class="line">|</span>
+				<span class="user-order">
+					<a href="">我的订单</a>
+				</span>
+			</div>
+		</div>
+		<div class="main-all">
+			<div class="main-blank">
+				<div class="main">
+					<div class="address-top">
+						<p>收货人信息</p>
+						<div class="jsy-address">
+							<p>{:session('orders.rec')}&nbsp;&nbsp;&nbsp;&nbsp;{:session('orders.addr')}&nbsp;&nbsp;&nbsp;&nbsp;{:session('orders.tel')}&nbsp;&nbsp;&nbsp;&nbsp;{:session('orders.umsg')}</p>
+						</div>
+					</div>
+					<!-- <div class="address">
+						<div class="address-top">
+							<p>收货地址</p>
+						</div>
+						<button type="button" class="address-main" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 550, height: 350}">
+							<i class="iconfont icon-tianjia"></i>
+							<span class="tianjia">添加新地址</span>
+						</button>
+						<div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+							<div class="am-modal-dialog">
+								<div class="am-modal-hd">
+									添加新地址
+									<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>×</a>
+								</div>
+								<div class="am-modal-bd">
+									<form action="./confirm.php">
+										<p><input type="text" class="address-text name-text" placeholder="姓名"></p>
+										<p><input type="text" class="address-text phone-text" placeholder="手机号"></p>
+										<p>
+											请选择：
+											<select name="" id="">
+												<option value="1">省份</option>
+												<option value="1">广东</option>
+											</select>
+											<select name="" id="">
+												<option value="1">市</option>
+												<option value="1">广州</option>
+											</select>
+											<select name="" id="">
+												<option value="1">区</option>
+												<option value="1">天河</option>
+											</select>
+										</p>
+										<p><input type="text" class="address-text" placeholder="详细地址"></p>
+										<p><input type="text" class="address-text" placeholder="邮编"></p>
+										<p><input type="submit" class="am-btn am-btn-primary" value="添加"></p>
+									</form>
+								</div>
+							</div>
+						</div>-->
+						<!-- <div class="address-main">
+							<a href="">
+								<i class="iconfont icon-tianjia"></i>
+								<span class="tianjia">添加新地址</span>
+							</a>
+						</div> -->
+					<!-- </div>  -->
+					<div class="method">
+						<div class="method-left">配送方式</div>
+						<span class="method-right">快递配送&nbsp;(免运费)</span>
+					</div>
+					<div class="time">
+						<div class="time-left">配送时间</div>
+						<ul class="time-list">
+							<li class="time-active"><a href="">不限送货时间：周一至周日</a></li>
+							<li><a href="">工作日送货：周一至周五</a></li>
+							<li><a href="">双休日、假日送货：周六至周日</a></li>
+						</ul>
+					</div>
+					<div class="invoice">
+						<div class="invoice-left">发票</div>
+						<ul class="invoice-list">
+							<li>电子发票</li>
+							<li>个人</li>
+							<li>商品明细</li>
+							<li><a href="">修改></a></li>
+						</ul>
+					</div>
+					<div class="goods-coupon">
+						<div class="goods-top">
+							<div class="goods-coupon-left">商品及优惠券</div>
+							<div class="return">
+								<a href="/cart/list">返回购物车></a>
+							</div>
+						</div>
+						<div class="goods-all">
+							<ul>
+								{foreach $carts as $k => $v}
+								<li>
+									<div class="goods-name">
+										<img src="{$v->gpic}" alt="">
+										<a href="">{$v->gname}</a>
+									</div>
+									<div class="goods-num">
+										<span>{$v->price}元 x {$v->cnt}</span>
+									</div>
+									<div class="goods-price">
+										<span>{$v->price * $v->cnt}元</span>
+									</div>
+								</li>
+								{/foreach}
+							</ul>
+						</div>
+						<div class="goods-pay">
+							<div class="goods-pay-one">
+								<a href="">
+									<i class="iconfont icon-tianjia"></i>
+									<span>使用优惠券</span>
+								</a>
+							</div>
+							<div class="goods-pay-one">
+								<a href="">
+									<i class="iconfont icon-tianjia"></i>
+									<span>使用小米礼品卡</span>
+								</a>
+							</div>
+							<div class="goods-pay-right">
+								<ul>
+									<li>
+										<div class="pay-1">商品件数:</div>
+										<div class="money-1">{:session('sum')}件</div>
+									</li>
+									<li>
+										<div class="pay-1">商品总价:</div>
+										<div class="money-1">{:session('count')}元</div>
+									</li>
+									<li>
+										<div class="pay-1">活动优惠:</div>
+										<div class="money-1">-0元</div>
+									</li>
+									<li>
+										<div class="pay-1">优惠券抵扣:</div>
+										<div class="money-1">-0元</div>
+									</li>
+									<li>
+										<div class="pay-1">运费:</div>
+										<div class="money-1">0元</div>
+									</li>
+									<li>
+										<div class="pay-2">应付总额:</div>
+										<div class="money-2"><span>{:session('count')}</span>元</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="order">
+						<form action="/order/ok" method="post">
+							<input type="submit" class="sub" value="提交订单">
+						</form>
+					</div>
+
+				</div>
+				<div class="blank-footer"></div>
+			</div>
+		</div>
+	</div>
+	{include file="common/index_footer"}
+

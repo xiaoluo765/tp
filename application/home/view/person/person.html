@@ -1,0 +1,167 @@
+{include file="common/index_header"}
+	<div class="person-cont">
+		<div class="person-main">
+			<div class="person-toper">
+				<span>首页>个人中心</span>
+			</div>
+			<div class="main-left" id="main_left">
+				<div class="order">
+					<p>订单中心</p>
+					<ul>
+						<li>
+							<a href="/order/myorder">我的订单</a>
+						</li>
+						<li>
+							<a href="">意外险</a>
+						</li>
+						<li>
+							<a href="">团购订单</a>
+						</li>
+						<li>
+							<a href="">评价晒单</a>
+						</li>
+						<li>
+							<a href="">话费充值订单</a>
+						</li>
+						<li>
+							<a href="">以旧换新订单</a>
+						</li>
+					</ul>
+				</div>
+				<div class="person" id="person">
+					<p>个人中心</p>
+					<ul>
+						<li>
+							<a href="/person/person" class="person-active">我的个人中心</a>
+						</li>
+						<li>
+							<a>消息通知</a>
+						</li>
+						<li>
+							<a href="">购买资格</a>
+						</li>
+						<li>
+							<a href="">现金账户</a>
+						</li>
+						<li>
+							<a href="">小米礼品卡</a>
+						</li>
+						<li>
+							<a href="">现金券</a>
+						</li>
+						<li>
+							<a href="">喜欢的商品</a>
+						</li>
+						<li>
+							<a href="">优惠券</a>
+						</li>
+						<li>
+							<a href="">收货地址</a>
+						</li>
+					</ul>
+				</div>
+				<div class="service">
+					<p>售后服务</p>
+					<ul>
+						<li>
+							<a href="">服务记录</a>
+						</li>
+						<li>
+							<a href="">申请服务</a>
+						</li>
+						<li>
+							<a href="">领取快递报销</a>
+						</li>
+					</ul>
+				</div>
+				<div class="manage">
+					<p>账户管理</p>
+					<ul>
+						<li>
+							<a href="">个人信息</a>
+						</li>
+						<li>
+							<a href="">修改密码</a>
+						</li>
+						<li>
+							<a href="">社区VIP认证</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="main-right" id="main_right">
+				
+				<div class="block" style="display: block;">
+					{foreach $user as $k => $v}
+					<div class="right-top">
+						<div class="user-card">
+							<div class="user-photos">
+								{if empty($v->pic)}
+								<img src="/static/home/images/photo.jpg">
+								{else}
+								<img src="{$v->pic}">
+								{/if}
+							</div>
+							<div class="user-message">
+								<h2>{:session('homeUser.uname')}</h2>
+								<span>早上好</span>
+								<a href="/pdetail">修改个人信息></a>
+							</div>
+						</div>
+						<div class="user-action">
+							<ul>
+								<li>账户安全:<span>普通</span></li>
+								<!-- <li>绑定手机:<span>{136********39}</span></li> -->
+								<li>
+									绑定邮箱:<span>{$v->email}</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					{/foreach}
+					<div class="right-footer">
+						<ul>
+							<li>
+								<img src="/static/home/images/portal-icon-1.png" alt="">
+								<div class="order-message">
+									<p>待支付的订单:&nbsp;<span>{$cnt}</span></p>
+									<a href="/order/myorder">
+										查看待支付订单
+									</a>
+								</div>
+							</li>
+							<li>
+								<img src="/static/home/images/portal-icon-2.png" alt="">
+								<div class="order-message">
+									<p>待支付的订单:&nbsp;<span>0</span></p>
+									<a href="">
+										查看待支付订单
+									</a>
+								</div>
+							</li>
+							<li>
+								<img src="/static/home/images/portal-icon-3.png" alt="">
+								<div class="order-message">
+									<p>待支付的订单:&nbsp;<span>0</span></p>
+									<a href="">
+										查看待支付订单
+									</a>
+								</div>
+							</li>
+							<li>
+								<img src="/static/home/images/portal-icon-4.png" alt="">
+								<div class="order-message">
+									<p>待支付的订单:&nbsp;<span>0</span></p>
+									<a href="">
+										查看待支付订单
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+	{include file="common/index_footer"}
+<!-- <script src="/static/home/js/person_js.js"></script> -->

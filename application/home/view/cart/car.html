@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/static/home/css/iconfont.css">
+	<link rel="stylesheet" href="/static/home/css/car.css">
+	<link rel="stylesheet" href="/static/home/css/index_footer.css">
+
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+				<a href="/"><img src="/static/home/images/logo.png" alt=""></a>
+			</div>
+			<div class="header-title">
+				<h2>我的购物车</h2>
+				<p>温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</p>
+			</div>
+			<div class="user-info">
+				<span class="user">
+					<a href="">
+						{:session('homeUser.uname')}
+						<i class="iconfont icon-moreunfold"></i>
+					</a>
+						<ul class="nav">
+							<li>
+								<a href="">个人中心</a>
+							</li>
+							<li>
+								<a href="">评价晒单</a>
+							</li>
+							<li>
+								<a href="">我的喜欢</a>
+							</li>
+							<li>
+								<a href="">小米账户</a>
+							</li>
+							<li>
+								<a href="/logout">退出登录</a>
+							</li>
+						</ul>
+				</span>
+				<span class="line">|</span>
+				<span class="user-order">
+					<a href="">我的订单</a>
+				</span>
+			</div>
+		</div>
+		<div class="main">
+			<div class="main-top">			
+				<div class="topline"></div>
+				<div id="goods_car">
+					<table cellspacing="0" class="tables">
+						<tr class="tr-top">
+							<th class="th1"><input type="checkbox" checked name="" class="check-all" id="check_all">全选</th>
+							<th class="th2">&nbsp;</th>
+							<th class="th3">商品名称</th>
+							<th class="th4">单价</th>
+							<th class="th5">数量</th>
+							<th class="th6">小计</th>
+							<th class="th7">操作</th>
+						</tr>
+						{if empty(session('cart'))}
+						<tr class="t1">
+							<td colspan="7">暂无商品</td>
+						</tr>
+						{else}
+						{volist name=":session('cart')" id="v"}
+						<tr class="t1">
+							<td><input type="checkbox" checked name="" class="goods-check"></td>
+							<td><img src="{$v->gpic}"></td>
+							<td>{$v->gname}</td>
+							<td>{$v->price}元</td>
+							<td>
+								<a href="/cart/desc/{$v->gid}" class="jian">-</a>
+								<input type="text" name="" class="num-text" id="num_text" value="{$v->cnt}">
+								<a href="/cart/incr/{$v->gid}" class="jia">+</a>
+							</td>
+							<td>{$v->price * $v->cnt}元</td>
+							<td>
+								<a href="/cart/delete/{$v->gid}">
+									<i class="iconfont icon-delete"></i>
+								</a>
+							</td>
+						</tr>
+						{/volist}
+						{/if}
+					</table>
+				</div>		
+				<div class="blank"></div>
+				<div class="list-footer">
+					<div class="list-footer-left">
+						<span><a href="/">继续购物</a></span>
+						<span class="line">|</span>
+						<span>
+							共<span class="count">{$sum}</span>件商品<!-- ，已选择<span class="count">2</span>件 -->
+						</span>
+					</div>
+					<div class="list-footer-right">
+						<form action="/order/info" method="post">
+							<input type="submit" class="sub" name="sub" value="去结算">
+						</form>
+						<span>合计：<b>{$count}</b>元</span>
+					</div>
+				</div>
+			</div>
+			<div class="main-footer">
+				<div class="more-top">
+					<div class="long-line"></div>
+					<h2>买购物车中商品的人还买了</h2>
+				</div>
+				<div class="more-goods">
+					<ul>
+						{volist name="goods" id="v" offset="0" length="10"}
+						<li>
+							<a href="">
+								<img src="{$v->gpic}">
+								<p>{$v->gname}</p>
+							</a>
+							<p>{$v->price}元</p>
+							<form action="/cart/add" method="post">
+								<input type="submit" class="goods-sub" name="goods_sub" value="加入购物车">
+							</form>
+						</li>
+						{/volist}
+					</ul>
+				</div>
+			</div>
+		</div>
+		{include file="common/index_footer"}
+	</div>
+</body>
+<script src="/static/home/js/car.js"></script>
+</html>

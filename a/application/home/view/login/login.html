@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/static/home/css/iconfont.css">
+	<link rel="stylesheet" href="/static/home/css/login.css">
+	<link rel="stylesheet" href="/static/home/css/login_footer.css">
+	<script src="/static/home/amazeui/js/jquery.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<a href="">
+				<img src="/static/home/images/login_logo.png" alt="">
+			</a>
+		</div>
+		<div class="main">
+			<div class="form">
+				<div class="form-top">
+					<div class="form-top-text">
+						<a id="zhanghao">账号登录</a>
+						<div class="line"></div>
+						<a id="saoma">扫码登录</a>
+					</div>
+				</div>
+				<!-- 账号登录 -->
+				<div class="form-main" id="form-main">
+					<form action="/check" method="post">
+						<div class="form-content">
+							<p><input type="text" class="login-text" name="uname" placeholder="邮箱/手机号码/小米ID"></p>
+							<p><input type="password" class="login-text" name="upwd" placeholder="密码"></p>
+							<p>
+								<input type="text" class="login-text yzm" name="yzm" placeholder="验证码">
+								<img src="/home/code" onclick="this.src='/home/code?a='+Math.random()" alt="">
+							</p>
+							<p><input type="submit" class="login-text login-sub" name="sub" value="登录"></p>
+							<div class="tip">
+								<span>
+									<a href="">手机短信登录/注册</a>
+								</span>
+								<div class="tip-right">
+									<a href="/register">立即注册</a>
+									<span></span>
+									<a href="">忘记密码？</a>
+								</div>
+							</div>
+						</div>
+					</form>
+					<div class="form-footer">
+						<div class="hr">
+							<div class="other">
+								<p>其他方式登录</p>
+							</div>
+						</div>
+						<div class="icon-all">
+							<a href=""><i class="iconfont icon-logo-qq"></i></a>
+							<a href=""><i class="iconfont icon-weibo"></i></a>
+							<a href=""><i class="iconfont icon-zhifubao"></i></a>
+							<a href=""><i class="iconfont icon-logo-wechat"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- 结束 -->
+				<!-- 扫码登录 -->
+				<div class="other-main" id="other-main">
+					<img src="/static/home/images/erweima.png" alt="">
+					<div class="other-main-p">
+						<p>使用<span>小米商城APP</span>扫一扫</p>
+						<p>小米手机可打开[设置]>[小米账号]扫码登录</p>
+					</div>
+				</div>
+				<!-- 结束 -->
+			</div>
+		</div>
+		<div class="footer">
+			<ul>
+				<li><a href="">简体</a></li>
+				<li><a href="">繁体</a></li>
+				<li><a href="">English</a></li>
+				<li><a href="">常见问题</a></li>
+				<li><a href="">隐私政策</a></li>
+			</ul>
+			<p>
+				小米公司版权所有-京ICP备10046444-<img src="/static/home/images/ghs.png" />京公网安备11010802020134号-京ICP证110507号
+			</p>
+		</div>
+	</div>
+	<script src="./js/login_js.js"></script>
+	{include file="common/login_footer"}

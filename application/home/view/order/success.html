@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/static/home/css/iconfont.css">
+	<link rel="stylesheet" href="/static/home/css/success.css">
+	<link rel="stylesheet" href="/static/home/css/index_footer.css">
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+				<a href="/"><img src="/static/home/images/logo.png" alt=""></a>
+			</div>
+			<div class="header-title">
+				<h2>支付订单</h2>
+			</div>
+			<div class="user-info">
+				<span class="user">
+					<a href="">
+						{:session('homeUser.uname')}
+						<i class="iconfont icon-moreunfold"></i>
+					</a>
+						<ul class="nav">
+							<li>
+								<a href="/person/person">个人中心</a>
+							</li>
+							<li>
+								<a href="">评价晒单</a>
+							</li>
+							<li>
+								<a href="">我的喜欢</a>
+							</li>
+							<li>
+								<a href="">小米账户</a>
+							</li>
+							<li>
+								<a href="/logout">退出登录</a>
+							</li>
+						</ul>
+				</span>
+				<span class="line">|</span>
+				<span class="user-order">
+					<a href="/order/myorder">我的订单</a>
+				</span>
+			</div>
+		</div>
+		<div class="main">
+			<div class="main-header">
+				<div class="icons-right">
+					<i class="iconfont icon-icon-right"></i>
+				</div>
+				<div class="order-commit">
+					<div class="commit-left">
+						<h2>订单提交成功！去付款咯~</h2>
+						<p>请在<span>2小时0分</span>内完成支付，超时后将取消订单</p>
+						<p>订单号：{$msg['oid']}</p>
+						<p>收货信息：{$msg['rec']} {$msg['tel']}&nbsp;&nbsp; {$msg['addr']}</p>
+						
+					</div>
+					<div class="commit-right">
+						<p>应付总额:<span><b>{$msg['count']}</b>元</span></p>
+						<p><a href="/" style="color:#ff6700;">返回首页</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="main-center">
+				<div class="inner-main">
+					<div class="cash-title">
+						<p>选择以下支付方式付款</p>
+					</div>
+					<div class="payment-online">
+						<div class="online-title">
+							<p>支付平台</p>
+						</div>
+						<div class="online-method">
+							<ul>
+								<li><img src="/static/home/images/online-1.png" alt=""></li>
+								<li><img src="/static/home/images/online-2.jpg" alt=""></li>
+								<li><img src="/static/home/images/online-3.png" alt=""></li>
+								<li><img src="/static/home/images/online-4.png" alt=""></li>
+							</ul>
+						</div>
+						<div class="online-content">
+							<p>支付宝：支付宝扫码支付，赢1999元红包</p>
+							<p>小米分期：全场6期免息，首单满20减6.18</p>
+							<a href="">了解更多></a>
+						</div>
+					</div>
+					<div class="payment-bank">
+						<div class="bank-title">
+							<p>银行借记卡及信用卡</p>
+						</div>
+						<div class="bank-content">
+							<ul>
+								<li><img src="/static/home/images/bank-1.png" alt=""></li>
+								<li><img src="/static/home/images/bank-2.png" alt=""></li>
+								<li><img src="/static/home/images/bank-3.png" alt=""></li>
+								<li><img src="/static/home/images/bank-4.png" alt=""></li>
+								<li><img src="/static/home/images/bank-5.png" alt=""></li>
+								<li><img src="/static/home/images/bank-6.png" alt=""></li>
+								<li><img src="/static/home/images/bank-7.png" alt=""></li>
+								<li><img src="/static/home/images/bank-8.png" alt=""></li>
+								<li><img src="/static/home/images/bank-9.png" alt=""></li>
+								<li><img src="/static/home/images/bank-10.png" alt=""></li>
+								<li><img src="/static/home/images/bank-11.png" alt=""></li>
+								<li><span>查看更多</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="payment-quickly">
+						<div class="quickly-title">
+							<p>快捷支付&nbsp;<span>(支持以下各银行信用卡以及部分银行借记卡)</span></p>
+						</div>
+						<div class="quickly-content">
+							<ul>
+								<li><img src="/static/home/images/bank-1.png" alt=""></li>
+								<li><img src="/static/home/images/bank-2.png" alt=""></li>
+								<li><img src="/static/home/images/bank-3.png" alt=""></li>
+								<li><img src="/static/home/images/bank-4.png" alt=""></li>
+								<li><img src="/static/home/images/bank-5.png" alt=""></li>
+								<li><img src="/static/home/images/bank-6.png" alt=""></li>
+								<li><img src="/static/home/images/bank-7.png" alt=""></li>
+								<li><img src="/static/home/images/bank-8.png" alt=""></li>
+								<li><img src="/static/home/images/bank-9.png" alt=""></li>
+								<li><img src="/static/home/images/bank-10.png" alt=""></li>
+								<li><img src="/static/home/images/bank-11.png" alt=""></li>
+								<li><img src="/static/home/images/bank-11.png" alt=""></li>
+								<li><img src="/static/home/images/bank-11.png" alt=""></li>
+								<li><img src="/static/home/images/bank-11.png" alt=""></li>
+								<li><img src="/static/home/images/bank-11.png" alt=""></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="main-footer">
+				<div class="fenqi-inner">
+					<div class="fenqi-title">
+						<p>分期付款</p>
+						<div class="fenqi-content">
+							<img src="/static/home/images/fenqi.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="blank-footer">
+			
+		</div>
+		{include file="common/index_footer"}
+	</div>
+</body>
+</html>

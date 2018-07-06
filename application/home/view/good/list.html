@@ -1,0 +1,238 @@
+{include file="common/index_header"}
+<div class="conts">
+		<div class="list-main">
+			<div class="list-top">
+				<div class="list-outer">
+					<div class="list-nav">
+						<p><a href="index.php">首页</a> <!-- > <a href="">所有商品</a> --> > <a href="">手机</a></p>
+					</div>
+				</div>
+				<!-- 导航条 -->
+				<div class="white-block">
+					<div class="fenlei">
+						<dl class="first-list">
+							<dt>分类:</dt>
+							<dd class="dd-active">全部</dd>
+							<dd><a href="">路由器/智能硬件</a></dd>
+							<dd><a href="">移动电源/插线板</a></dd>
+							<dd><a href="">电池/存储卡</a></dd>
+							<dd><a href="">音箱/耳机</a></dd>
+							<dd><a href="">保护套/贴膜</a></dd>
+							<dl class="hidden-list">
+								<dd><a href="">路由器/智能硬件</a></dd>
+								<dd><a href="">移动电源/插线板</a></dd>
+								<dd><a href="">电池/存储卡</a></dd>
+								<dd><a href="">音箱/耳机</a></dd>
+								<dd><a href="">保护套/贴膜</a></dd>
+								<dd><a href="">路由器/智能硬件</a></dd>
+								<dd><a href="">移动电源/插线板</a></dd>
+								<dd><a href="">电池/存储卡</a></dd>
+								<dd><a href="">音箱/耳机</a></dd>
+								<dd><a href="">保护套/贴膜</a></dd>
+								<dd><a href="">路由器/智能硬件</a></dd>
+								<dd><a href="">移动电源/插线板</a></dd>
+								<dd><a href="">电池/存储卡</a></dd>
+								<dd><a href="">音箱/耳机</a></dd>
+								<dd><a href="">保护套/贴膜</a></dd>
+								<dd><a href="">路由器/智能硬件</a></dd>
+								<dd><a href="">移动电源/插线板</a></dd>
+								<dd><a href="">电池/存储卡</a></dd>
+								<dd><a href="">音箱/耳机</a></dd>
+								<dd><a href="">保护套/贴膜</a></dd>
+								<dd><a href="">路由器/智能硬件</a></dd>
+								<dd><a href="">移动电源/插线板</a></dd>
+							</dl>
+						</dl>
+						<div class="gengduo">
+							<a>更多
+							<i class="iconfont icon-xiala1"></i>
+							</a>
+						</div>
+					</div>
+					<div class="jixing">
+						<dl class="first-list">
+							<dt>分类:</dt>
+							<dd class="dd-active">全部</dd>
+							<dd><a href="">路由器/智能硬件</a></dd>
+							<dd><a href="">移动电源/插线板</a></dd>
+							<dd><a href="">电池/存储卡</a></dd>
+							<dd><a href="">音箱/耳机</a></dd>
+							<dd><a href="">保护套/贴膜</a></dd>
+							<dl class="hidden-list-1">
+								<dd><a href="">路由器/智能硬件</a></dd>
+								<dd><a href="">移动电源/插线板</a></dd>
+								<dd><a href="">电池/存储卡</a></dd>
+								<dd><a href="">音箱/耳机</a></dd>
+								<dd><a href="">保护套/贴膜</a></dd>
+								<dd><a href="">路由器/智能硬件</a></dd>
+								<dd><a href="">移动电源/插线板</a></dd>
+								<dd><a href="">电池/存储卡</a></dd>
+								<dd><a href="">音箱/耳机</a></dd>
+								<dd><a href="">保护套/贴膜</a></dd>
+								<dd><a href="">路由器/智能硬件</a></dd>
+							</dl>
+						</dl>
+						<div class="gengduo-1">
+							<a>更多
+							<i class="iconfont icon-xiala1"></i>
+							</a>
+						</div>
+					</div>
+					
+				</div>
+				<div class="goods">
+					<div class="list-goods-top">
+						<ul class="chose">
+							<li>
+								<a href="" class="active">推荐</a>
+							</li>
+							<span>|</span>
+							<li>
+								<a href="">新品</a>
+							</li>
+							<span>|</span>
+							<li>
+								<a href="">
+									价格
+									<i class="iconfont icon-jiantou"></i>
+									<!-- <i class="iconfont icon-jiantou1"></i> -->
+								</a>
+							</li>
+							<span>|</span>
+							<li>
+								<a href="">评论最多</a>
+							</li>
+						</ul>
+						<ul class="detail-checkbox">
+							<li>
+								<a href="">
+									<label for="">
+										<input type="checkbox" name="" class="checked">
+										<span class="word">查看评价</span>
+									</label>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<input type="checkbox" name="" class="checked">
+									<span class="word">仅显示特惠商品</span>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<input type="checkbox" name="" class="checked">
+									<span class="word">仅显示有货商品</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="goods-all">
+						<ul>
+							{foreach $goods as $k=>$v}
+							<li>
+								<!-- <center> -->
+								<div class="hidden">
+									<a href="" class="like">
+										<i class="iconfont icon-aixin"></i>
+										<span class="span-like">喜欢</span>
+									</a>
+									<a href="" class="join">
+										<span>加入购物车</span>
+										<i class="iconfont icon-5"></i>
+									</a>
+								</div>
+								<a href="/gooddetail/{$v->gid}">
+									<img src="{$v->gpic}" alt="">
+								</a>
+								<p>
+									<a href="/gooddetail/{$v->gid}">{$v->gname}</a>
+								</p>
+								<p>
+									<span>{$v->price}元</span>
+								</p>
+								
+								<div class="small-pic">
+									<a href="">
+										<img src="/static/home/images/shouji7.jpg" alt="">
+									</a>
+								</div>
+								<div class="small-pic">
+									<a href="">
+										<img src="/static/home/images/shouji7.jpg" alt="">
+									</a>
+								</div>
+								<div class="small-pic">
+									<a href="">
+										<img src="/static/home/images/shouji7.jpg" alt="">
+									</a>
+								</div>
+								<!-- </center> -->
+							</li>
+							{/foreach}
+						</ul>
+					</div>
+					<div class="page">
+						<div class="page-main">
+							{$goods->render()|raw}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="list-more">
+				<div class="more-title">
+					<h2>您还看了</h2>
+				</div>
+				<div class="more-goods">
+					<ul>
+						<li>
+							<a href="">
+								<img src="/static/home/images/shouji7.jpg">
+								<p>红米5A 全网通版 3GB内存</p>
+							</a>
+							<p>699元</p>
+							<input type="submit" class="goods-sub" name="goods_sub" value="加入购物车">
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/shouji7.jpg">
+								<p>红米5A 全网通版 3GB内存</p>
+							</a>
+							<p>699元</p>
+							<input type="submit" class="goods-sub" name="goods_sub" value="加入购物车">
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/shouji7.jpg">
+								<p>红米5A 全网通版 3GB内存</p>
+							</a>
+							<p>699元</p>
+							<input type="submit" class="goods-sub" name="goods_sub" value="加入购物车">
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/shouji7.jpg">
+								<p>红米5A 全网通版 3GB内存</p>
+							</a>
+							<p>699元</p>
+							<input type="submit" class="goods-sub" name="goods_sub" value="加入购物车">
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/shouji7.jpg">
+								<p>红米5A 全网通版 3GB内存</p>
+							</a>
+							<p>699元</p>
+							<input type="submit" class="goods-sub" name="goods_sub" value="加入购物车">
+						</li>
+					</ul>
+					<div class="circle">
+						<ul>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{include file="common/index_footer"}

@@ -1,0 +1,60 @@
+{extend name="common/default"}
+{block name="main"}
+<div class="main-wrap">
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">用户管理</a><span class="crumb-step">&gt;</span><span>添加用户</span></div>
+    </div>
+    <div class="result-wrap">
+        <div class="result-content">
+            <form action="/user/save" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <table class="insert-tab" width="100%">
+                    <tbody>
+                        <tr>
+                            <th><i class="require-red">*</i>权限：</th>
+                            <td>
+                                <select name="auth" id="auth" class="required">
+                                    <option value="">请选择</option>
+                                    <option value="1">超级管理员</option>
+                                    <option value="2">后台用户</option>
+                                    <option value="3">前台用户</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>用户名：</th>
+                            <td><input class="common-text" name="uname" size="40" value="" type="text" placeholder="请输入4-10位的用户名"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>密码：</th>
+                            <td><input class="common-text" name="upwd" size="40" value="" type="password" placeholder="请输入6-18位的密码"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>确认密码：</th>
+                            <td><input class="common-text" name="reupwd" size="40" value="" type="password" placeholder="请确认密码"></td>
+                        </tr>
+                        <tr>
+                            <th>性别：</th>
+                            <td>
+                                <input type="radio" name="sex" value="m">男
+                                <input type="radio" name="sex" value="w">女
+                                <input type="radio" name="sex" value="x">保密
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>电话：</th>
+                            <td><input class="common-text" name="tel" size="40" value="" type="text" placeholder="请输入手机号"></td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}

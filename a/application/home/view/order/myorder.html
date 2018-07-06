@@ -1,0 +1,183 @@
+{include file="common/index_header"}
+	<div class="person-cont">
+		<div class="person-main">
+			<div class="person-toper">
+				<span>首页>个人中心</span>
+			</div>
+			<div class="main-left" id="main_left">
+				<div class="order">
+					<p>订单中心</p>
+					<ul>
+						<li>
+							<a href="/order/myorder" class="person-active">我的订单</a>
+						</li>
+						<li>
+							<a href="">意外险</a>
+						</li>
+						<li>
+							<a href="">团购订单</a>
+						</li>
+						<li>
+							<a href="">评价晒单</a>
+						</li>
+						<li>
+							<a href="">话费充值订单</a>
+						</li>
+						<li>
+							<a href="">以旧换新订单</a>
+						</li>
+					</ul>
+				</div>
+				<div class="person" id="person">
+					<p>个人中心</p>
+					<ul>
+						<li>
+							<a href="/person/person">我的个人中心</a>
+						</li>
+						<li>
+							<a>消息通知</a>
+						</li>
+						<li>
+							<a href="">购买资格</a>
+						</li>
+						<li>
+							<a href="">现金账户</a>
+						</li>
+						<li>
+							<a href="">小米礼品卡</a>
+						</li>
+						<li>
+							<a href="">现金券</a>
+						</li>
+						<li>
+							<a href="">喜欢的商品</a>
+						</li>
+						<li>
+							<a href="">优惠券</a>
+						</li>
+						<li>
+							<a href="">收货地址</a>
+						</li>
+					</ul>
+				</div>
+				<div class="service">
+					<p>售后服务</p>
+					<ul>
+						<li>
+							<a href="">服务记录</a>
+						</li>
+						<li>
+							<a href="">申请服务</a>
+						</li>
+						<li>
+							<a href="">领取快递报销</a>
+						</li>
+					</ul>
+				</div>
+				<div class="manage">
+					<p>账户管理</p>
+					<ul>
+						<li>
+							<a href="">个人信息</a>
+						</li>
+						<li>
+							<a href="">修改密码</a>
+						</li>
+						<li>
+							<a href="">社区VIP认证</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="main-right" id="main_right">
+				<div class="block" style="display: block">
+					<div class="my-order">
+						<div class="order-title">
+							<div class="order-title-h1">
+								<h1>我的订单</h1>
+							</div>
+							<small>请谨防钓鱼链接或诈骗电话，<a href="">了解更多></a></small>
+						</div>
+						<div class="order-list">
+							<div class="list-left">
+								<ul>
+									<li><a href="" class="list-active">全部有效订单</a></li>
+									<span>|</span>
+									<li><a href="">待支付</a></li>
+									<span>|</span>
+									<li><a href="">待收货</a></li>
+									<span>|</span>
+									<li><a href="">已关闭</a></li>
+								</ul>
+							</div>
+							<!-- <div class="order-search">
+								<input type="text" class="order-text" value="" placeholder="输入商品名称、商品编号、订单号">
+								<input type="image" class="order-sub" value=" ">
+							</div> -->
+						</div>
+						<div class="order-main">
+							<div class="waiting">
+								<span>等待付款</span>
+							</div>
+							<div class="message-main">
+								<table cellspacing="0">
+									<tr class="myorder-tr1">
+										<td class="col-sub">
+											<p>
+											    订单金额:
+											    <span>{$total}</span>
+											    元
+										    </p>
+										</td>
+										<td class="order-action">
+										    <p><a href=""><input type="submit" class="btn sub-action" value="立即支付"></a></p>
+										</td>
+									</tr>
+									<tr class="myorder-tr2">
+										<td class="myorder-items">
+											<ul>
+											    {foreach $order as $k => $v}
+											    {foreach $v->detail as $kk => $vv}
+											    <li class="li-1">
+											        <h3>订单号：{$v->oid} &nbsp;&nbsp; 收货人：{$v->rec} &nbsp;&nbsp; 下单时间：{:date('Y-m-d H:i:s',$v->create_at)}</h3>
+											    </li>
+											    <li>
+											        <a href=""><img src="{$vv->goods->gpic}" alt=""></a>
+											        <p>
+											            <a href="">{$vv->goods->gname}</a>
+											        </p>
+											        <p>{$vv->price}元x{$vv->cnt}</p>
+											    </li>
+											    {/foreach}
+											    {/foreach}
+											</ul>
+										</td>
+										
+										<td class="myorder-quxiao">
+										{foreach $order as $k => $v}
+										{foreach $v->detail as $kk => $vv}
+											<div class="myorder-div">
+												{if $v['status'] != '已收货'}
+												<p><a href="/order/queren/{$vv->orders_oid}">确认收货</a></p>
+												<p><a href="/order/del/{$vv->orders_oid}">取消订单</a></p>
+												{/if}
+												{if $v['status'] == '已收货'}
+												<p>已收货</p>
+												{/if}
+											</div>
+										{/foreach}
+										{/foreach}
+										</td>
+									</tr>
+								</table>
+                				<div class="list-page">{$order->render()|raw}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>	
+		</div>
+	</div>
+	{include file="common/index_footer"}
+<!-- <script src="/static/home/js/person_js.js"></script> -->

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/static/home/css/iconfont.css">
+	<link rel="stylesheet" href="/static/home/css/info.css">
+	<link rel="stylesheet" href="/static/home/css/index_footer.css">
+	<link rel="stylesheet" href="/static/home/amazeui/css/amazeui.min.css">
+	<script src="/static/home/amazeui/js/jquery.js"></script>
+	<script src="/static/home/amazeui/js/amazeui.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="logo">
+				<img src="/static/home/images/logo.png" alt="">
+			</div>
+			<div class="header-title">
+				<h2>收货人信息</h2>
+			</div>
+			<div class="user-info">
+				<span class="user">
+					<a href="">
+						{:session('homeUser.uname')}
+						<i class="iconfont icon-moreunfold"></i>
+					</a>
+						<ul class="nav">
+							<li>
+								<a href="">个人中心</a>
+							</li>
+							<li>
+								<a href="">评价晒单</a>
+							</li>
+							<li>
+								<a href="">我的喜欢</a>
+							</li>
+							<li>
+								<a href="">小米账户</a>
+							</li>
+							<li>
+								<a href="">退出登录</a>
+							</li>
+						</ul>
+				</span>
+				<span class="line">|</span>
+				<span class="user-order">
+					<a href="">我的订单</a>
+				</span>
+			</div>
+		</div>
+		<div class="info-main">
+			<div class="info-form">
+				<form action="/order/jsy" method="post">
+					<div class="form-item">
+						<label><span>收 货 人</span></label>
+						<input type="text" name="rec" class="info-text">
+					</div>
+					<div class="form-item">
+						<label><span>联 系 电 话</span></label>
+						<input type="text" name="tel" class="info-text">
+					</div>
+					<div class="form-item">
+						<label><span>收 货 地 址</span></label>
+						<input type="text" name="addr" class="info-text">
+					</div>
+					<div class="form-item">
+						<label><span>用 户 留 言</span></label>
+						<input type="text" name="umsg" class="info-text">
+					</div>
+					<div class="form-item form-items">
+						<input type="submit" value="提交信息" class="info-sub">
+					</div>
+					<div class="form-item form-items form-items-fanhui">
+						<a href="/cart/list"><input type="button" value="返回" class="info-sub"></a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{include file="common/index_footer"}
+

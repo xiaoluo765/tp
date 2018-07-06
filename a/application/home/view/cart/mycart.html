@@ -1,0 +1,28 @@
+{include file="common/index_header"}
+<div class="main-top">
+	<form action="/cart/list" method="post">
+		<div class="topline"></div>
+		<div id="goods_car">
+			<table cellspacing="0" class="tables">
+				<tr class="tr-top">
+					<th colspan="3">商品已成功添加到购物车!</th>
+				</tr>
+				<tr class="t1">
+					<td><img src="{$goods->gpic}"></td>
+					<td>{$goods->gname}</td>
+					<td></td>
+				</tr>
+				
+			</table>
+		</div>		
+		<div class="blank"></div>
+		<div class="list-footer">
+			<div class="mylist-footer-right">
+				<span><a href="/">继续购物</a></span>
+				<input type="submit" class="mysub" name="sub" value="去购物车结算">
+			</div>
+		</div>
+	</form>
+</div>
+<script src="/static/home/js/car.js"></script>
+{include file="common/index_footer"}

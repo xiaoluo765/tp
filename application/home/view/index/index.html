@@ -1,0 +1,721 @@
+{include file='common/index_header'}
+<div class="left-fixed">
+	<ul>
+		<li>
+			<a href="">
+				<img src="/static/home/images/52.png">
+			</a>
+			<ul>
+				<li>
+					<a href="">个人中心</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="">
+				<img src="/static/home/images/50.png">
+			</a>
+			<ul>
+				<li>
+					<a href="">联系客服</a>
+				</li>
+			</ul>
+		</li>
+		<li>
+			<a href="">
+				<img src="/static/home/images/56.png">
+			</a>
+			<ul>
+				<li>
+					<a href="">购物车(0)</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+
+</div>
+<!-- <div class="header-topbar"> -->
+	<!-- <div class="container"> -->
+	<!-- 头部开始 -->
+		<!-- 头部结束 -->
+		
+		<div class="header-middle">
+			<div class="header-middle-top">
+			<!-- 二级菜单 -->
+				<div class="left-list">
+					<ul>
+						<?php
+							$cates = \app\common\model\Cate::getTreeCates();
+						?>
+						{volist name="cates" id="v" offset="0" length="10"}
+						<li>
+							<a href="/goodlist/{$v->cid}">{$v->cname}</a>
+							<i class="iconfont icon-more"></i>
+							<ul>
+								<li>
+									{foreach $v->sub as $kk=>$vv}
+									<a href="/goodlist/{$vv->cid}">
+										<img src="" alt="">
+										<span class="text">{$vv->cname}</span>
+									</a>
+									{/foreach}
+								</li>	
+							</ul>	
+						</li>
+						{/volist}
+					</ul>
+				</div>
+				<!-- 二级菜单结束 -->
+				<div class="lunbo" id="lunbo">
+					<ul id="pic">
+						<!-- <li><a href=""><img src="/static/home/images/lunbo1.jpg" alt=""></a></li> -->
+						{volist name="lunbo" id="v"}
+						<li><a href=""><img src="{$v->gpic}" alt=""></a></li>
+						{/volist}
+					</ul>
+					<ol id="list">
+						<li class="active"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ol>
+				</div>
+			</div>
+			<div class="header-middle-footer">
+				<div class="header-middle-footer-list">
+					<ul>
+						<li>
+							<a href="">
+								<img src="/static/home/images/101.png" alt="">
+								<span class="header-middle-one six">选购手机</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/102.png" alt="">
+								<span class="header-middle-two six">企业团购</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/103.png" alt="">
+								<span class="header-middle-three six">F码通道</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/104.png" alt="">
+								<span class="header-middle-four six">米粉卡</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/105.png" alt="">
+								<span class="header-middle-five six">以旧换新</span>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/106.png" alt="">
+								<span class="header-middle-six six">话费充值</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="header-middle-footer-img">
+					<ul>
+						<li>
+							<a href="">
+								<img src="/static/home/images/pic1.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/pic2.jpg" alt="">
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/pic3.jpg" alt="">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	<!-- </div> -->
+
+	<div class="index-main">
+		<div class="flash-shopping">
+			<div class="flash-shopping-title">
+				<h2>小米闪购</h2>
+			</div>
+			<div class="flash-shopping-chose">
+				<div id="flash-chose-left" class="flash-chose-both">
+					<i class="iconfont icon-more icon-more-flash"></i>
+				</div>
+				<div id="flash-chose-right" class="flash-chose-both">
+					<i class="iconfont icon-back"></i>
+				</div>
+			</div>
+			<div>
+				<div id="flash-shopping-left">
+					<center>
+						<div id="flash-shopping-time">
+							<span>18:00场</span>
+							<img src="/static/home/images/flash.png" alt="">
+						</div>
+						<div id="flash-shopping-start">
+							<span>距离开始还有</span>
+						</div>
+						<div class="flash-all">
+							<div class="flash-box">00</div>
+							<div class="flash-dosh">:</div>
+							<div class="flash-box">00</div>	
+							<div class="flash-dosh">:</div>
+							<div class="flash-box">00</div>
+						</div>
+					</center>
+				</div>
+				<div class="flash-right">
+					<ul>
+						<li>
+							<a href="">
+								<img src="/static/home/images/pic8.jpg" alt="">
+								<h3>小米电水壶 白色</h3>
+								<p>小巧便捷，节省桌面空间</p>
+								<p>
+									<span>129元</span>
+									<del>140元</del>
+								</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/pic9.jpg" alt="">
+								<h3>小米电水壶 白色</h3>
+								<p>小巧便捷，节省桌面空间</p>
+								<p>
+									<span>129元</span>
+									<del>140元</del>
+								</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/pic9.jpg" alt="">
+								<h3>小米电水壶 白色</h3>
+								<p>小巧便捷，节省桌面空间</p>
+								<p>
+									<span>129元</span>
+									<del>140元</del>
+								</p>
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="/static/home/images/pic9.jpg" alt="">
+								<h3>小米电水壶 白色</h3>
+								<p>小巧便捷，节省桌面空间</p>
+								<p>
+									<span>129元</span>
+									<del>140元</del>
+								</p>
+							</a>
+						</li>	
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="width-pic">
+			<img src="/static/home/images/widthpic2.jpg" alt="">
+		</div>
+	</div>
+<!-- </div>	 -->
+<div class="mobile-all">
+	<div class="mobile">
+		<div class="mobile-title">
+			<h2>手机</h2>
+			<div class="more">
+				<a href="./list.php">
+					<i class="iconfont icon-more mobile-icon-more"></i>
+					<span>查看全部</span>
+				</a>
+			</div>
+		</div>
+		<div class="long-pic">
+			<a href="">
+				<img src="/static/home/images/longpic1.jpg" alt="">
+			</a>
+		</div>
+		<div class="mobile-list">
+			<ul>
+				<li>
+					<div class="mobile-list-red">减500元</div>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>	
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<div class="mobile-list-red">减500元</div>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<div class="mobile-list-red">减500元</div>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>		
+			</ul>
+		</div>
+		<div class="width-pic">
+			<img src="/static/home/images/widthpic2.jpg" alt="">
+		</div>
+	<div id="ele">
+		<div class="ele-top">
+			<h2>家电</h2>
+			<ul id="nav23">
+				<li>
+					<a href="" class="active">热门</a>
+				</li>
+				<li>
+					<a href="">电视影音</a>
+				</li>
+				<li>
+					<a href="">电脑</a>
+				</li>
+				<li>
+					<a href="">家居</a>
+				</li>
+			</ul>
+		</div>	
+		<div class="ele-left">
+			<ul>
+				<li>
+					<a href="">
+						<img src="/static/home/images/ele-left1.jpg">
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/ele-left2.jpg">
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div id="ele-right" class="ele-right">
+			<ul>
+				<li>
+					<div class="ele-right-red">减500元</div>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+					<div class="ele-slidedown">
+						
+					</div>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<div class="ele-right-red">减500元</div>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<div class="ele-right-red">减500元</div>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+				<li>
+					<a href="">
+						<img src="/static/home/images/shouji2.jpg" alt="">
+						<span>小米note 3 4GB+64GB</span>
+					</a>
+					<p>1600万美颜自拍，2倍变焦双摄</p>
+					<p><span>1799元</span> <del>1999元</del></p>
+				</li>
+			</ul>
+		</div>
+		<div id="ele-right-all">
+			<div class="ele-right">
+				<ul>
+					<li>
+						<span class="ele-right-red">减500元</span>
+						<a href="">
+							<img src="/static/home/images/shouji2.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji2.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji2.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<span class="ele-right-red">减500元</span>
+						<a href="">
+							<img src="/static/home/images/shouji2.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji2.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji2.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<span class="ele-right-red">减500元</span>
+						<a href="">
+							<img src="/static/home/images/shouji2.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji2.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+				</ul>
+			</div>
+			<div class="ele-right">
+				<ul>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji9.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<span class="ele-right-red">减500元</span>
+						<a href="">
+							<img src="/static/home/images/shouji9.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji9.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji9.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji9.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<span class="ele-right-red">减500元</span>
+						<a href="">
+							<img src="/static/home/images/shouji9.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji9.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji9.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+				</ul>
+			</div>
+			<div class="ele-right">
+				<ul>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji6.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji6.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji6.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji6.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji6.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji6.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji6.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji6.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+				</ul>
+			</div>
+			<div class="ele-right">
+				<ul>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji8.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji8.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji8.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji8.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji8.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji8.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji8.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+					<li>
+						<a href="">
+							<img src="/static/home/images/shouji8.jpg" alt="">
+							<span>小米note 3 4GB+64GB</span>
+						</a>
+						<p>1600万美颜自拍，2倍变焦双摄</p>
+						<p><span>1799元</span> <del>1999元</del></p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+		<div class="width-pic width-pic1">
+			<img src="/static/home/images/widthpic2.jpg" alt="">
+		</div>
+	</div>
+</div>	
+<script src="/static/home/js/index_js.js"></script>
+
+{include file='common/index_footer'}
+
+

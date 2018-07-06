@@ -1,0 +1,79 @@
+{extend name="common/default"}
+{block name="main"}
+<div class="main-wrap">
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="/jscss/admin/design/">首页</a><span class="crumb-step">&gt;</span><a class="crumb-name" href="/jscss/admin/design/">用户管理</a><span class="crumb-step">&gt;</span><span>添加商品</span></div>
+    </div>
+    <div class="result-wrap">
+        <div class="result-content">
+            <form action="/goods/update/{$goods->gid}" method="post" id="myform" name="myform" enctype="multipart/form-data">
+                <table class="insert-tab" width="100%">
+                    <tbody>
+                        <tr>
+                            <th><i class="require-red">*</i>商品分类：</th>
+                            <td>
+                                <select name="cate_id" id="cate_id">
+                                    <option value="0">请选择</option>
+                                    {volist name="cates" id="v"}
+                                    <?php
+                                        $n = substr_count($v->path,',')-1;
+                                    ?>
+                                    <option {if $v->cid == $goods->cate_id}selected{/if}
+                                     value="{$v->cid}">{:str_repeat('&nbsp;',4*$n)}|---{$v->cname}</option>
+                                    {/volist}
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>商品名称：</th>
+                            <td><input class="common-text" name="gname" size="50" value="{$goods->gname}" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>定价：</th>
+                            <td><input class="common-text" name="price" size="50" value="{$goods->price}" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th><i class="require-red">*</i>库存量：</th>
+                            <td><input class="common-text" name="stock" size="50" value="{$goods->stock}" type="text"></td>
+                        </tr>
+                        <tr>
+                            <th>缩略图：</th>
+                            <td>
+                                <input name="gpic" value="" type="file">
+                                <img style="width: 80px;" src="{$goods->gpic}" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>内容：</th>
+                            <td>
+                                <textarea name="gdesc" id="" cols="58" rows="6">{$goods->gdesc}</textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>状态：</th>
+                            <td>
+                                <input type="radio" 
+                                {if $goods->status == "新品"}checked{/if}
+                                 name="status" value="1">新品
+                                <input type="radio"
+                                {if $goods->status == "上架"}checked{/if}
+                                 name="status" value="2">上架
+                                <input type="radio"
+                                {if $goods->status == "下架"}checked{/if}
+                                 name="status" value="3">下架
+                            </td>
+                        </tr>
+                        <tr>
+                            <th></th>
+                            <td>
+                                <input class="btn btn-primary btn6 mr10" value="提交" type="submit">
+                                <input class="btn btn6" onclick="history.go(-1)" value="返回" type="button">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+{/block}

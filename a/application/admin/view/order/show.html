@@ -1,0 +1,45 @@
+{extend name="common/default"}
+{block name="main"}
+<div class="main-wrap">
+    <div class="crumb-wrap">
+        <div class="crumb-list"><i class="icon-font"></i><a href="index.html">首页</a><span class="crumb-step">&gt;</span><span class="crumb-name">作品管理</span></div>
+    </div>
+    <div class="search-wrap">
+        <div class="search-content">
+            
+        </div>
+    </div>
+    <div class="result-wrap">
+        <form name="myform" id="myform" method="post">
+            <div class="result-title">
+                <div class="result-list">
+                    <a href="insert.html"><i class="icon-font"></i>新增作品</a>
+                    <a id="batchDel" href="javascript:void(0)"><i class="icon-font"></i>批量删除</a>
+                    <a id="updateOrd" href="javascript:void(0)"><i class="icon-font"></i>更新排序</a>
+                </div>
+            </div>
+            <div class="result-content">
+                <table class="result-tab" width="100%">
+                    <tr>
+                        <th>商品名称</th>
+                        <th>商品图片</th>
+                        <th>购买单价</th>
+                        <th>购买数量</th>
+                        <th>小计</th>
+                    </tr>
+                    {foreach $detail as $k=>$v}
+                    <tr>
+                        <td>{$v->goods->gname}</td>
+                        <td><img height="100px;" src="{$v->goods->gpic}" alt=""></td>
+                        <td>{$v->price}</td>
+                        <td>{$v->cnt}</td>
+                        <td>{$v->price * $v->cnt}</td>
+
+                    </tr>
+                    {/foreach}
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}

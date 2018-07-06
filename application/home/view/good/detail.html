@@ -1,0 +1,330 @@
+{include file="common/index_header"}
+	<div class="cont">
+		<div class="out-main">
+			<div class="main">
+				<div class="goods-top">
+					<div class="goods-title">
+						<span>红米自拍手机S2</span>
+					</div>
+					<ul>
+						<li><a href="">概述</a></li>
+						<span>|</span>
+						<li><a href="">参数</a></li>
+						<span>|</span>
+						<li><a href="">F码通道</a></li>
+						<span>|</span>
+						<li><a href="">用户评价</a></li>
+					</ul>
+				</div>
+				<div class="goods-left">
+					<img src="{$detail->gpic}" alt="">
+					<div class="small-chose">
+						<ul>
+							<li><a href=""><img src="/static/home/images/shouji8.jpg" alt="" class="pic-active"></a></li>
+							<li><a href=""><img src="/static/home/images/shouji6.jpg" alt=""></a></li>
+							<li><a href=""><img src="/static/home/images/shouji7.jpg" alt=""></a></li>
+							<li><a href=""><img src="/static/home/images/shouji9.jpg" alt=""></a></li>
+							<li><a href=""><img src="/static/home/images/shouji5.jpg" alt=""></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="goods-right">
+					<div class="right-main">
+						<div class="introduce">
+							<h2>{$detail->gname}</h2>
+							<p>&nbsp;<span>[新品在售中] </span>前置1600万 2μm (4合1) 超大像素智能美拍 / 后置1200万+500万AI双摄 / 骁龙625 八核处理器</p>
+							<span>{$detail->price}</span>
+						</div>
+						<!-- <div class="address-out">
+							<div class="address">
+								<p>
+									<i class="iconfont icon-location"></i>
+									<span>北京</span><span>北京市</span><span>东城区</span><span>永定门外街道</span><a href="">修改</a>
+								</p>
+								<span class="goods-has">{$detail->status}</span>
+							</div>
+						</div> -->
+						<div class="chose-G">
+							<h3>选择版本</h3>
+							<div class="chose-same active">
+								<div class="chose-left">3GB+32GB</div>
+								<div class="chose-right">999元</div>
+							</div>
+							<div class="chose-same">
+								<div class="chose-left">4GB+64GB</div>
+								<div class="chose-right">1299元</div>
+							</div>
+						</div>
+						<div class="chose-color">
+							<h3>选择颜色</h3>
+							<div class="color-same color-active">
+								<div class="color-show">
+									<div class="color-diff"></div>
+									<span>香槟金</span>
+								</div>
+							</div>
+							<div class="color-same">
+								<div class="color-show">
+									<div class="color-diff"></div>
+									<span>香槟金</span>
+								</div>
+							</div>
+							<div class="color-same">
+								<div class="color-show">
+									<div class="color-diff"></div>
+									<span>香槟金</span>
+								</div>
+							</div>
+						</div>
+						<div class="chose-service">
+							<div class="service-top">
+								<div class="service-title">
+									<p>选择小米提供的保障服务</p>
+								</div>
+								<div class="service-more">
+									<a href="">了解保障服务 ></a>
+								</div>
+							</div>
+							<div class="service-main">
+								<input type="checkbox" name="" class="baoxian-check">
+								<img src="/static/home/images/baoxian.jpg" alt="">
+								<div class="service-content">
+									<h3>意外保险服务</h3>
+									<p>手机意外掉落/进水/碾压等损坏</p>
+									<p><input type="checkbox" name="" checked class="tiaokuan-check">我已阅读<a href="">服务条款</a>|<a href="">常见问题</a></p>
+									<span>299元</span>
+								</div>
+							</div>
+						</div>
+						<div class="count">
+							<div class="type">
+								<div class="type-G">{$detail->gname} 香槟金</div>
+								<div class="type-price">{$detail->price}元</div>
+							</div>
+							<!-- <div class="all-count">总计：{$detail->price}元</div> -->
+						</div>
+						<div class="detail-join">
+							<form action="/cart/add" method="post">
+								<button type="button" id="pn-dec">-</button>
+								<input type="text" name="cnt" readonly="readonly" class="num-text" id="p-cnt" value="1">
+								<button type="button" id="pn-add">+</button>
+								<input type="hidden" name="gid" value="{$detail->gid}">
+								<input type="submit" class="submit" value="加入购物车">
+							</form>
+							<div class="other">
+								<ul>
+									<li>7天无理由退货</li>
+									<li>15天质量问题换货</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="outer-main">
+			<div class="main-center">
+				<div class="center-top">
+					<ul>
+						<li><a href="" class="xq-active">详情描述</a></li>
+						<span>|</span>
+						<li><a href="">评价晒单(2.4万)</a></li>
+						<span>|</span>
+						<li><a href="">商品提问(153)</a></li>
+					</ul>
+				</div>
+				<div class="xiangqing">
+					<div class="xiangqing-title">
+						<div class="xiangqing-h2">
+							<h2>详情描述</h2>
+						</div>
+						<div class="line-blank"></div>
+					</div>
+					<div class="xiangqing-content">
+						<p>该商品暂时没有详情描述</p>
+					</div>
+				</div>
+				<div class="pingjia">
+					<div class="pingjia-title">
+						<div class="pingjia-h2">
+							<h2>评价晒单</h2>
+						</div>
+						<div class="line-blank"></div>
+					</div>
+					<div class="pingjia-score">
+						<div class="pingjia-num">
+							<b>94.0<span>%</span></b>
+							<p>购买后满意</p>
+							<p>24106名用户评价</p>
+						</div>
+					</div>
+				</div>
+				<div class="a"></div>
+
+				<div class="pingjia-content">
+					<div class="pinlun-content">
+						<div class="pinglun-title">
+							<div class="pinglun-title-left">
+								<p>最有帮助的评论</p>
+							</div>
+							<div class="tu-check">
+								<input type="checkbox" name="" id="">
+								<span>只显示带图的评论</span>
+							</div>
+						</div>
+						<div class="pinglun-main">
+							<ul>
+								<li>
+									<div class="user-photo">
+										<img src="/static/home/images/logo.png" alt="">
+									</div>
+									<div class="user-content">
+										<p>昨天下午校园里的随手一拍，有没有很美。一直用小米手机，目前为止最喜欢的手机就是5s了，相机是最爱。随便一拍就美美哒~~用了三个多月，无障碍。</p>
+										<div class="content-img">
+											<img src="/static/home/images/pic10.jpg" alt="">
+										</div>
+										<div class="require">
+											<input type="text" name="" class="require-text" placeholder="回复楼主">
+											<input type="submit" value="回复" class="require-sub">
+										</div>
+										<div class="require-content">
+											<ul>
+												<li>
+													<div class="require-img">
+														<img src="/static/home/images/pic10.jpg" alt="">
+													</div>
+													<div class="require-p">
+														<p>那么美的妹纸竟然还能失恋？？？这还要不要别人活了~~你那么美怕什么，还有客服小哥哥陪你，（づ￣3￣）づ╭❤～感谢您对小米的支持。<span>-用户名</span></p>
+													</div>
+												</li>
+												<li>
+													<div class="require-img">
+														<img src="/static/home/images/pic10.jpg" alt="">
+													</div>
+													<div class="require-p">
+														<p>哈哈，有趣<span>-用户名1</span></p>
+													</div>
+												</li>
+												<li>
+													<div class="require-img">
+														<img src="/static/home/images/pic10.jpg" alt="">
+													</div>
+													<div class="require-p">
+														<p>哈哈，有趣<span>-用户名1</span></p>
+													</div>
+												</li>
+												<!-- <li>
+													<a href="">查看全部2条回复></a>
+												</li> -->
+												<li>
+													<p>950221200 &nbsp;2017年6月26日 哑光金色<!-- <span>赞366</span> --></p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+								<li>
+									<div class="user-photo">
+										<img src="/static/home/images/logo.png" alt="">
+									</div>
+									<div class="user-content">
+										<p>昨天下午校园里的随手一拍，有没有很美。一直用小米手机，目前为止最喜欢的手机就是5s了，相机是最爱。随便一拍就美美哒~~用了三个多月，无障碍。</p>
+										<div class="content-img">
+											<img src="/static/home/images/pic10.jpg" alt="">
+										</div>
+										<div class="require">
+											<input type="text" name="" class="require-text" placeholder="回复楼主">
+											<input type="submit" value="回复" class="require-sub">
+										</div>
+										<div class="require-content">
+											<ul>
+												<li>
+													<div class="require-img">
+														<img src="/static/home/images/pic10.jpg" alt="">
+													</div>
+													<div class="require-p">
+														<p>那么美的妹纸竟然还能失恋？？？这还要不要别人活了~~你那么美怕什么，还有客服小哥哥陪你，（づ￣3￣）づ╭❤～感谢您对小米的支持。<span>-用户名</span></p>
+													</div>
+												</li>
+												<li>
+													<div class="require-img">
+														<img src="/static/home/images/pic10.jpg" alt="">
+													</div>
+													<div class="require-p">
+														<p>哈哈，有趣<span>-用户名1</span></p>
+													</div>
+												</li>
+												<li>
+													<div class="require-img">
+														<img src="/static/home/images/pic10.jpg" alt="">
+													</div>
+													<div class="require-p">
+														<p>哈哈，有趣<span>-用户名1</span></p>
+													</div>
+												</li>
+												<!-- <li>
+													<a href="">查看全部2条回复></a>
+												</li> -->
+												<li>
+													<p>950221200 &nbsp;2017年6月26日 哑光金色<!-- <span>赞366</span> --></p>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="pinglun-new">
+						<p>最新评价</p>
+						<ul>
+							<li>
+								<p>2018年2月22日</p>
+								<p>用起来不错</p>
+								<p>
+									<img src="/static/home/images/pic10.jpg" alt="">
+									<img src="/static/home/images/pic10.jpg" alt="">
+								</p>
+								<p>来自于 345103649</p>
+							</li>
+							<li>
+								<p>2018年2月22日</p>
+								<p>用起来不错</p>
+								<p>来自于 345103649</p>
+							</li>
+							<li>
+								<p>2018年2月22日</p>
+								<p>用起来不错</p>
+								<p>
+									<img src="/static/home/images/pic10.jpg" alt="">
+									<img src="/static/home/images/pic10.jpg" alt="">
+								</p>
+								<p>来自于 345103649</p>
+							</li>
+							<li>
+								<p>2018年2月22日</p>
+								<p>用起来不错</p>
+								<p>来自于 345103649</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script>
+		    var add = document.getElementById('pn-add');
+		    var dec = document.getElementById('pn-dec');
+		    var cnt = document.getElementById('p-cnt');
+		    add.onclick = function(){
+		        cnt.value++;
+		    };
+		    dec.onclick = function(){
+		        cnt.value--;
+		        if (cnt.value<=0) {
+		            cnt.value = 1;
+		        }
+		       
+		    };
+		</script>
+		{include file="common/index_footer"}
+	</div>

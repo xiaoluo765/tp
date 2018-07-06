@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/static/home/css/iconfont.css">
+	<link rel="stylesheet" href="/static/home/css/index_header.css">
+	<link rel="stylesheet" href="/static/home/css/iconfont.css">
+	<link rel="stylesheet" href="/static/home/css/person.css">
+	<link rel="stylesheet" href="/static/home/css/myorder.css">
+	<link rel="stylesheet" href="/static/home/css/pdetail.css">
+	<link rel="stylesheet" href="/static/home/css/index.css">
+	<link rel="stylesheet" href="/static/home/css/detail.css">
+	<link rel="stylesheet" href="/static/home/css/list.css">
+	<link rel="stylesheet" href="/static/home/css/car.css">
+	<link rel="stylesheet" href="/static/home/css/mycar.css">
+	<link rel="stylesheet" href="/static/home/css/index_footer.css">
+	<script src="/static/home/amazeui/js/jquery.js"></script>
+</head>
+<body>
+<div class="header-topbar">
+	<div class="header_container">
+		<div class="header-top">
+			<div class="header-topleft">
+				<ul>
+					<li><a href="/">小米商城</a></li>
+					<li><a href="">MIUI</a></li>
+					<li><a href="">loT</a></li>
+					<li><a href="">云服务</a></li>
+					<li><a href="">水滴</a></li>
+					<li><a href="">金融</a></li>
+					<li><a href="">有品</a></li>
+					<li><a href="">Select Region</a></li>
+				</ul>
+			</div>
+			<div class="header-top-right">
+				{if !empty(session('cart'))}
+				<!-- 购物车有东西 -->
+				<div class="shopping-cared">
+					<a href="car.php"><i class="iconfont icon-cart"></i>购物车（{:count(session('cart'))}）</a>
+					<div class="slidedowned">
+						{volist name=":session('cart')" id="v"}
+						<div class="car-goods">
+							<img src="{$v->gpic}" alt="">
+							<div class="car-content">
+								<p>{$v->gname}</p>
+							</div>
+							<div class="car-price">
+								<p>{$v->price}元x{$v->cnt}</p>
+								<a href="/cart/delete/{$v->gid}"><i class="iconfont icon-shanchudelete30"></i></a>
+							</div>
+						</div>
+						{/volist}
+						<div class="cared-pay">
+							<div class="pay-all">
+								<p>共{:session('sum')}件商品</p>
+								<p>{:session('count')}元</p>
+							</div>
+							<form action="/cart/list" method="post">
+								<input type="submit" class="cared-sub" value="去购物车结算">
+							</form>
+						</div>
+					</div>
+				</div>
+				<!-- 购物车结束 -->
+				{else}
+				<!-- 购物车为空 -->
+				<div class="shopping-car">
+					<a href="/cart/list"><i class="iconfont icon-cart"></i>购物车（0）</a>
+					<div class="slidedown">
+						<p>购物车还没有商品，赶紧选购吧</p>
+					</div>
+				</div>
+				{/if}
+				<!-- 登录后 -->
+				{if !empty(session('homeFlag'))}
+				<div class="logined">
+					<ul>
+						<li>
+							<a href="">
+								{:session('homeUser.uname')}<i class="iconfont icon-moreunfold"></i> 
+							</a>
+							<ul>
+								<li>
+									<a href="/person/person">个人中心</a>
+								</li>
+								<li>
+									<a href="">评价晒单</a>
+								</li>
+								<li>
+									<a href="">我的喜欢</a>
+								</li>
+								<li>
+									<a href="">小米账户</a>
+								</li>
+								<li>
+									<a href="/logout">退出登录</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="">消息通知</a>
+						</li>
+						<li>
+							<a href="/order/myorder">我的订单</a>
+						</li>
+					</ul>
+				</div>
+				<!-- 未登录 -->
+				{else}
+				<div class="login">
+					<ul>
+						<li><a href="/login">登陆</a></li>
+						<li><a href="/register">注册</a></li>
+						<li><a href="">消息通知</a></li>
+					</ul>
+				</div>	
+				{/if}
+			</div>
+		</div>
+		<div class="header-nav">
+			<div class="index-logo">
+				<a href="/"><img src="/static/home/images/logo.png" title="小米官网"></a>
+			</div>
+			<div class="search">
+				<form action="/goodlist" method="get">
+					<input type="text" id="search-text" class="search-text" name="gname" value="{if !empty($_GET['gname'])}{$_GET['gname']}{/if}">
+					<input type="submit" class="search-sub" name="search-sub" value="" >
+					<i class='iconfont icon-hongSearch'></i>
+				</form>
+				<div id="search-hot-words" class="search-hot-words">
+					<a href="">小米6x 拍人更美</a>
+				</div>
+				<div id="search-keyword" class="search-keyword">
+					<ul>
+						<li><a href="">小米手机6<span>约有29件</span></a></li>
+						<li><a href="">红米手机5X<span>约有8件</span></a></li>
+						<li><a href="">红米note4X<span>约有14件</span></a></li>
+						<li><a href="">红米手机4X<span>约有9件</span></a></li>
+						<li><a href="">小米MAX2<span>约有20件</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header-list">
+				<ul>
+					<li>
+						<a href="">小米手机</a>
+						<ul>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji2.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji2.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji2.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji2.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji2.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji2.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="">电视</a>
+						<ul>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji3.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji3.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji3.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji3.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji3.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji3.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="">笔记本</a>
+						<ul>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji4.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji4.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji4.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji4.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji4.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji4.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="">盒子</a>
+						<ul>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji5.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji5.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji5.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji5.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji5.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji5.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="">新品</a>
+						<ul>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji6.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji6.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji6.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji6.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji6.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji6.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="">路由器</a>
+						<ul>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji7.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji7.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji7.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji7.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji7.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji7.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<a href="">智能硬件</a>
+						<ul>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji8.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji8.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji8.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji8.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji8.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+							<li>
+								<p>新品</p>
+								<a href="">
+									<img src="/static/home/images/shouji8.jpg" alt="">
+									<p>小米8</p>
+								</a>
+								<span>2888元</span>
+							</li>
+						</ul>
+					</li>
+					<li><a href="">服务</a></li>
+					<li><a href="">社区</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
